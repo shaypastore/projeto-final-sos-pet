@@ -1,20 +1,20 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\IndexController;
+use App\Http\Controllers\OcorrenciaController;
+use App\Http\Controllers\UsuariosController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+Route::get('/', [IndexController::class, 'index'])->name('inicio');
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//----------------------------Ocorrências---------------------------------
+Route::get('/ocorrencia/criar', [OcorrenciaController::class, 'criar'])->name('ocorrencia/criar');
+Route::post('/ocorrencia/criar', [OcorrenciaController::class, 'inserir'])->name('ocorrencia/inserir');
+Route::get('/ocorrencia/ver/{ocor}', [OcorrenciaController::class, 'ver'])->name('ocorrencia/ver');
+Route::get('/ocorrencia/editar/{ocor}', [OcorrenciaController::class, 'editar'])->name('ocorrencia/editar');
+Route::put('/ocorrencia/editar/{ocor}', [OcorrenciaController::class, 'editarGravar']);
 
-//nova rota
+//----------------------------Usuários---------------------------------
+Route::get('login', [UsuariosController::class, 'index'])->name('usuario.index');
+Route::post('login', [UsuariosController::class, 'login'])->name('usuario.login');
+Route::get('logout', [UsuariosController::class, 'logout'])->name('usuario.logout');
