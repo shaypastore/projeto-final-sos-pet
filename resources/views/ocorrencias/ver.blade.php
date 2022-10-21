@@ -6,7 +6,7 @@
 <h1>Ver Ocorrência</h1>
 <p><strong>{{$ocorrencia->titulo}}</strong></p>
 <p>Descrição: {{$ocorrencia->descricao}}</p>
-<!-- <p><img src="{{asset('/img/'.$artigo->img)}}" class="img-fluid border rounded-3 shadow-lg mb-4" alt="Example image" width="700" height="500" loading="lazy" alt="..."></p> -->
+<p><img src="{{asset('/img/'.$ocor->img)}}" class="img-fluid border rounded-3 shadow-lg mb-4" alt="Example image" width="700" height="500" loading="lazy" alt="..."></p> -->
 
 <!-- <form action="{{ route('comentar') }}" method="post" enctype="multipart/form-data">
     @csrf
@@ -21,6 +21,6 @@
     <p><i>*Para comentar, é necessário estar autenticado</i></p>
     <hr class="my-4">
     @endif
-</form> -->
+</form>  -->
 
 @endsection
