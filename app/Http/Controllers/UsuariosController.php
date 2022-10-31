@@ -38,5 +38,9 @@ class UsuariosController extends Controller
       return redirect()->route('usuario.index');
    }
 
+   public function cadastrar()
+   {
+      return view('usuarios/cadastrar');
+   }
 
 }

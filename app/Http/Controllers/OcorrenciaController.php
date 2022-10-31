@@ -37,4 +37,13 @@ class OcorrenciaController extends Controller
         return redirect()->route('inicio');
     }
 
+    public function index()
+    {
+        $ocorrencias = Ocorrencia::all();
+        return view('ocorrencia/index', [
+            'ocors' => $ocorrencias,
+        ]);
+    }
+
+
 }
