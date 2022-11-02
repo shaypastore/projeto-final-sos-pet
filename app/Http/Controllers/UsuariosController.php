@@ -43,4 +43,16 @@ class UsuariosController extends Controller
       return view('usuarios/cadastrar');
    }
 
+   public function inserir(Request $form) 
+   {
+      $dados = $form->validate([
+         'nome' => 'required',
+         'email' => 'required',
+         'senha' => 'required',
+      ]);
+     Usuario::create($dados);
+
+     return redirect()->route('inicio');
+   }
+
 }
