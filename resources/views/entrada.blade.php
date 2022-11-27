@@ -15,10 +15,25 @@
 </div>
 
 <div class="container px-4 px-lg-5">
+<nav class="navbar navbar-light bg-light">
+            <H2>Ocorrências</H2>
+            <div style='text-align:right'>
+				<label for="title">Categoria</label>
+				<select class="form-select form-select-sm" aria-label=".form-select-sm example">
+					<option selected>Selecione uma categoria</option>
+					<option value="1">Animal nas Ruas</option>
+					<option value="2">Denúncia</option>
+					<option value="3">Animal Desaparecido</option>
+					<option value="4">Resgate</option>
+				</select>
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+			</div>
+        </nav>
+
     <div class="row gx-4 gx-lg-5 justify-content-center">
         <div class="col-md-10 col-lg-8 col-xl-7">
-
-            @foreach($ocors as $ocor)          
+            <br>
+            @foreach($ocors as $ocor)
             <div class="post-preview">
                 <a href="{{route('ocorrencia/ver', $ocor->id)}}">
                     <h2 class="post-title">{{$ocor->titulo}}</h2>

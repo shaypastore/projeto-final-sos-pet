@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Ocorrencia;
 use App\Models\Usuario;
 use Illuminate\Http\Request;
 
@@ -11,6 +12,16 @@ class UsuariosController extends Controller
     public function index()
    {
       return view('usuarios.index');
+   }
+
+   public function ver(Usuario $usuario) {
+      
+      $ocorrencia_usuario = Ocorrencia::where('usuario_id', $usuario->id)->with('usuarios')->get();
+      return view('usuarios/ver', [
+            'usuario' => $usuario,
+            'ocorrencias' => $ocorrencia_usuario,
+        ]);
+
    }
 
    public function login(Request $form)
@@ -49,6 +60,7 @@ class UsuariosController extends Controller
          'nome' => 'required',
          'email' => 'required',
          'senha' => 'required',
+      
       ]);
      Usuario::create($dados);
 

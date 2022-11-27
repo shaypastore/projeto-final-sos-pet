@@ -28,7 +28,7 @@ KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We
                 </ul>
                 <div class="text-end">
                     @if (session('usuario'))
-                    Usuário autenticado: {{ session('usuario.nome') }}
+                    <a href="{{ route('usuario/visualizar') }}" class="btn btn-outline-light me-2">Usuário autenticado: {{ session('usuario.nome') }}</a>
                     <a class="btn btn-outline-light me-2" href="{{ route('usuario.logout') }}">Sair</a>
                     @else
                     <a class="btn btn-outline-light me-2" href="{{ route('usuario.index') }}">Autenticar</a>

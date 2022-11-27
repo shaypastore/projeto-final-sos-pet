@@ -25,11 +25,11 @@
       <label for="floatingPassword">Senha</label>
     </div>
     <div class="form-floating">
-    <select class="form-select" aria-label="Default select example">
+    <!-- <select class="form-select" aria-label="Default select example">
       <option selected>Selectione o tipo de usuário</option>
       <option value="1">Visitante</option>
       <option value="2">Admin</option>
-    </select>
+    </select> -->
     </div>
     <div>
       <button class="w-100 btn btn-lg btn-primary" type="submit" value="Acessar">Cadastrar</button>

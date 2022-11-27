@@ -13,16 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('ocorrencias', function (Blueprint $table) {
+        Schema::create('categorias', function (Blueprint $table) {
             $table->id();
-            $table->string('titulo');
-            $table->string('endereco');
-            $table->string('bairro');
-            $table->string('cidade');
-            $table->text('descricao');
-            $table->integer('usuario_id');
-            $table->integer('categoria_id');
-            $table->string('img')->nullable();
+            $table->string('nome');
             $table->timestamps();
         });
     }
@@ -34,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ocorrencias');
+        Schema::dropIfExists('categorias');
     }
 };

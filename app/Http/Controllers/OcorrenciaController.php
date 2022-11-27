@@ -20,7 +20,6 @@ class OcorrenciaController extends Controller
         ]);
     }
 
-
     public function inserir(Request $form)
     {
         $dados = $form->validate([
@@ -30,8 +29,13 @@ class OcorrenciaController extends Controller
             'cidade' => 'required',
             'descricao' => 'required'
         ]);
+
+        $user_id = session()->get("usuario.id");
+        $dados['usuario_id'] = $user_id;
+
         $imgCaminho = $form->file('img')->store('', 'imagens');
         $dados['img'] = $imgCaminho;
+
         Ocorrencia::create($dados);
 
         return redirect()->route('inicio');
@@ -45,5 +49,8 @@ class OcorrenciaController extends Controller
         ]);
     }
 
+    public function filtrar () {
+        
+    }
 
 }
