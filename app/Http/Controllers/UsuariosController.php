@@ -15,8 +15,10 @@ class UsuariosController extends Controller
    }
 
    public function ver(Usuario $usuario) {
-      
-      $ocorrencia_usuario = Ocorrencia::where('usuario_id', $usuario->id)->with('usuarios')->get();
+
+      $user_id = session()->get("usuario.id");
+
+      $ocorrencia_usuario = Ocorrencia::where('usuario_id', $user_id)->get();
       return view('usuarios/ver', [
             'usuario' => $usuario,
             'ocorrencias' => $ocorrencia_usuario,

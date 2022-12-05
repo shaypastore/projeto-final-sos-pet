@@ -19,7 +19,7 @@
             <H2>Ocorrências</H2>
             <div style='text-align:right'>
 				<label for="title">Categoria</label>
-				<select class="form-select form-select-sm" aria-label=".form-select-sm example">
+				<select class="form-select form-select-sm" name="categoria" aria-label=".form-select-sm example">
 					<option selected>Selecione uma categoria</option>
 					<option value="1">Animal nas Ruas</option>
 					<option value="2">Denúncia</option>

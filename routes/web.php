@@ -12,8 +12,7 @@ Route::get('/ocorrencia', [OcorrenciaController::class, 'index'])->name('ocorenc
 Route::get('/ocorrencia/criar', [OcorrenciaController::class, 'criar'])->name('ocorrencia/criar');
 Route::post('/ocorrencia/criar', [OcorrenciaController::class, 'inserir'])->name('ocorrencia/inserir');
 Route::get('/ocorrencia/ver/{ocor}', [OcorrenciaController::class, 'ver'])->name('ocorrencia/ver');
-Route::get('/ocorrencia/editar/{ocor}', [OcorrenciaController::class, 'editar'])->name('ocorrencia/editar');
-Route::put('/ocorrencia/editar/{ocor}', [OcorrenciaController::class, 'editarGravar']);
+Route::get('/ocorrencia/finalizar/{ocorrencia}', [OcorrenciaController::class, 'finalizar']);
 
 //----------------------------Usuários---------------------------------
 Route::get('login', [UsuariosController::class, 'index'])->name('usuario.index');

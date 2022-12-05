@@ -23,6 +23,7 @@ return new class extends Migration
             $table->integer('usuario_id');
             $table->integer('categoria_id');
             $table->string('img')->nullable();
+            $table->string('situacao')->nullable();
             $table->timestamps();
         });
     }

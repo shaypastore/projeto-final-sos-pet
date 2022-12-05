@@ -22,16 +22,19 @@ class OcorrenciaController extends Controller
 
     public function inserir(Request $form)
     {
+
         $dados = $form->validate([
             'titulo' => 'required',
             'endereco' => 'required',
             'bairro' => 'required',
             'cidade' => 'required',
+            'categoria' => 'required',
             'descricao' => 'required'
         ]);
-
+        
         $user_id = session()->get("usuario.id");
         $dados['usuario_id'] = $user_id;
+        $dados['categoria_id'] = $form->get('categoria');
 
         $imgCaminho = $form->file('img')->store('', 'imagens');
         $dados['img'] = $imgCaminho;
@@ -51,6 +54,17 @@ class OcorrenciaController extends Controller
 
     public function filtrar () {
         
+    }
+
+    public function finalizar (Ocorrencia $ocor) {
+
+        //$ocor = Ocorrencia::where('id', $ocor[0] )->update('situacao', '1');
+
+
+        return view('ocorrencias/ver', [
+            'ocorrencia' => $ocor,    
+        ]);
+
     }
 
 }
