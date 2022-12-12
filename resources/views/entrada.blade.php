@@ -15,20 +15,22 @@
 </div>
 
 <div class="container px-4 px-lg-5">
-<nav class="navbar navbar-light bg-light">
-            <H2>Ocorrências</H2>
-            <div style='text-align:right'>
-				<label for="title">Categoria</label>
-				<select class="form-select form-select-sm" name="categoria" aria-label=".form-select-sm example">
-					<option selected>Selecione uma categoria</option>
-					<option value="1">Animal nas Ruas</option>
-					<option value="2">Denúncia</option>
-					<option value="3">Animal Desaparecido</option>
-					<option value="4">Resgate</option>
-				</select>
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
-			</div>
-        </nav>
+    <nav class="navbar navbar-light bg-light">
+        <H2>Ocorrências</H2>
+        <div style='text-align:right'>
+            <form action="{{ route('ocorrencia/filtrar') }}" method="post">
+                @csrf
+                <label for="title">Categoria</label>
+                <select class="form-select form-select-sm" name="categoria" aria-label=".form-select-sm example">
+                    <option value="0" @if($selecionado==0) selected @endif>Todas categorias</option>
+                    @foreach ($cat as $c)
+                    <option value="{{$c->id}}" @if($c->id == $selecionado) selected @endif >{{$c->nome}}</option>
+                    @endforeach
+                </select>
+                <input class="btn btn-outline-success my-2 my-sm-0" type="submit" value="Buscar">
+            </form>
+        </div>
+    </nav>
 
     <div class="row gx-4 gx-lg-5 justify-content-center">
         <div class="col-md-10 col-lg-8 col-xl-7">

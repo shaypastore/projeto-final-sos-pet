@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Categoria;
 use App\Models\Ocorrencia;
 use Illuminate\Http\Request;
 
@@ -44,22 +45,31 @@ class OcorrenciaController extends Controller
         return redirect()->route('inicio');
     }
 
-    public function index()
-    {
-        $ocorrencias = Ocorrencia::all();
-        return view('ocorrencia/index', [
-            'ocors' => $ocorrencias,
-        ]);
-    }
 
-    public function filtrar () {
+    public function filtrar (Request $idCat) {
+
+        $categorias = Categoria::all();
+
+        if ($idCat->categoria == 0) {
+            $ocorrencias = Ocorrencia::all();
+        } else {
+            $ocorrencias = Ocorrencia::where('categoria_id', $idCat->categoria)->get();
+        }
+
+        return view('entrada', [
+            'ocors' => $ocorrencias,
+            'cat' => $categorias,
+            'selecionado' => $idCat->categoria,
+        ]);
         
     }
 
+
+
     public function finalizar (Ocorrencia $ocor) {
 
-        //$ocor = Ocorrencia::where('id', $ocor[0] )->update('situacao', '1');
-
+        $ocor->situacao = '1';
+        $ocor->save();
 
         return view('ocorrencias/ver', [
             'ocorrencia' => $ocor,    
